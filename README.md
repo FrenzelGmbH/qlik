@@ -12,7 +12,9 @@ This repository is delivered "as is". We don't take any warrenty on the scripts.
 ADMIN -- the backend part, for developers and advanced users only
 ANALYSEN -- the frontend part, for advanced and normal users
 CONSOLE -- the console, tiny tools that will help you to automatise tasks
-DOCS -- General docs about this repository
+DEPLOYMENT -- default target for all exports from within qlikview (optional nprinting)
+DOCS -- general docs about this repository
+VERSIONING -- this will hold all config files that will be managed within versioning tools like git
 ```
 
 ## Author
@@ -20,7 +22,6 @@ DOCS -- General docs about this repository
 Frenzel GmbH
 
 Hohewartstr. 32
-
 GER - 70469 Stuttgart
 
 egdar(at)frenzel.net
