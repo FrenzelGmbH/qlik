@@ -18,7 +18,9 @@ DOCS -- General docs about this repository
 ## Author
 
 Frenzel GmbH
+
 Hohewartstr. 32
+
 GER - 70469 Stuttgart
 
 egdar<at>frenzel.net
