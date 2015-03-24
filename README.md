@@ -23,4 +23,5 @@ Hohewartstr. 32
 
 GER - 70469 Stuttgart
 
-egdar<at>frenzel.net
+egdar(at)frenzel.net
+www.frenzel.net
