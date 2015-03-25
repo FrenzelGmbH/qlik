@@ -1,0 +1,25 @@
+/**
+ * @author Philipp Frenzel <philipp@frenzel.net>
+ * @version 0.2
+ * @copyright Frenzel GmbH 2015
+ */
+
+//Pls. define your project root here
+LET varProjectRoot = "d:/qlikview/";
+
+//Common Path and File Information
+LET varFileName = DocumentName();
+LET varFilePath = DocumentPath();
+
+//Pointer to Dataloader Path
+LET PATH_DATALOADER = "$(varProjectFolder)/ADMIN/$(varENV)01 Dataloader/";
+
+//Pointer to Datastaging Path
+LET PATH_DATASTAGING = "$(varProjectFolder)/ADMIN/$(varENV)02 Datastaging/";
+
+//Pointer to Datalogic Path
+LET PATH_DATALOGIC = "$(varProjectFolder)/ADMIN/$(varENV)03 Datalogic/";
+
+//Pointer to Datamart Path
+LET PATH_DATAMART = "$(varProjectFolder)/ADMIN/$(varENV)04 Datamart/";
+

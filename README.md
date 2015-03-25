@@ -17,6 +17,14 @@ DOCS -- general docs about this repository
 VERSIONING -- this will hold all config files that will be managed within versioning tools like git
 ```
 
+## Setup
+
+After you have cloned or downloaded the template, pls. go to the folder:
+
+ADMIN > COMMON > 00 CONFIG
+
+and edit the CONF_PATHS to set the correct "varProjectRoot". Default is "d:/qlikview/".
+
 ## Author
 
 Frenzel GmbH
