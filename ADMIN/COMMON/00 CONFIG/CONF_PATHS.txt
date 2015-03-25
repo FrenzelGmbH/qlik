@@ -5,7 +5,7 @@
  */
 
 //Pls. define your project root here
-LET varProjectRoot = "d:/qlikview/";
+LET varProjectRoot = "d:/qlikview";
 
 //Common Path and File Information
 LET varFileName = DocumentName();
@@ -22,4 +22,3 @@ LET PATH_DATALOGIC = "$(varProjectFolder)/ADMIN/$(_ENV)03 Datalogic/";
 
 //Pointer to Datamart Path
 LET PATH_DATAMART = "$(varProjectFolder)/ADMIN/$(_ENV)04 Datamart/";
-
