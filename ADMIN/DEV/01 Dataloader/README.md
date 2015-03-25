@@ -15,7 +15,7 @@ Load Skript Introduction Syntax Template:
  */
 
 //set the environment
-LET _ENV = "DEV";
+SET _ENV = "DEV";
 
 //here we load the global config
 $(include=../../COMMON/00 Config/CONF_PATHS.txt);
@@ -30,7 +30,7 @@ Load Skript Dataloader Syntax Template:
  * @version 1.0
  */
 
-Let varTableName = "tbl_demo";
+SET varTableName = "tbl_demo";
 
 QUALIFY "*";
 
