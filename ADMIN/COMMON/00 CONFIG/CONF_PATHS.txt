@@ -12,13 +12,13 @@ LET varFileName = DocumentName();
 LET varFilePath = DocumentPath();
 
 //Pointer to Dataloader Path
-LET PATH_DATALOADER = "$(varProjectFolder)/ADMIN/$(_ENV)01 Dataloader/";
+LET PATH_DATALOADER = "$(varProjectFolder)/ADMIN/$(_ENV)/01 Dataloader/";
 
 //Pointer to Datastaging Path
-LET PATH_DATASTAGING = "$(varProjectFolder)/ADMIN/$(_ENV)02 Datastaging/";
+LET PATH_DATASTAGING = "$(varProjectFolder)/ADMIN/$(_ENV)/02 Datastaging/";
 
 //Pointer to Datalogic Path
-LET PATH_DATALOGIC = "$(varProjectFolder)/ADMIN/$(_ENV)03 Datalogic/";
+LET PATH_DATALOGIC = "$(varProjectFolder)/ADMIN/$(_ENV)/03 Datalogic/";
 
 //Pointer to Datamart Path
-LET PATH_DATAMART = "$(varProjectFolder)/ADMIN/$(_ENV)04 Datamart/";
+LET PATH_DATAMART = "$(varProjectFolder)/ADMIN/$(_ENV)/04 Datamart/";
