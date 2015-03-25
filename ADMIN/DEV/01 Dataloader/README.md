@@ -2,7 +2,7 @@
 
 In diesem Ordner befinden sich sämtliche "Datenpumpen" welche einen rohen Datenextrakt als QVD in das Datastaging ablegen.
 
-Load Skript Syntax Template:
+Load Skript Introduction Syntax Template:
 
 ```
 /**
@@ -19,4 +19,27 @@ LET _ENV = "DEV";
 
 //here we load the global config
 $(include=../../COMMON/00 Config/CONF_PATHS.txt);
+```
+
+Load Skript Dataloader Syntax Template:
+
+```
+/**
+ * @dataloader tbl_demo
+ * @source OLEDB
+ * @version 1.0
+ */
+
+Let varTableName = "tbl_demo";
+
+QUALIFY "*";
+
+$(varTableName):
+LOAD 
+    *;
+SQL SELECT * FROM [$(varTableName)];
+
+UNQUALIFY "*";
+
+STORE $(varTableName) INTO "$(PATH_DATASTAGING)$(varTableName).qvd" (qvd);
 ```
