@@ -48,3 +48,32 @@ UNQUALIFY "*";
 STORE $(varTableName) INTO "$(PATH_DATASTAGING)$(varTableName).qvd" (qvd);
 ```
 
+Identifizieren von Dubletten:
+
+```
+//first we load the raw source table
+RawTable:
+LOAD 
+    *
+FROM [$(PATH_DATASTAGING)TestSource.qvd];
+
+//then we will load the table sorted by our dublicates identification
+SortedTable:
+NOCONCATENATE LOAD
+    *
+RESIDENT RawTable
+ORDER BY %DublettenId, %Date;
+
+//to avoid circular references, we drop the raw table
+DROP TABLE RawTable;
+
+//now we check for dublicates and add a flag
+FinalTable:
+NOCONCATENATE LOAD
+    *
+    ,IF(PREVIOUS(%DublettenId) = %DublettenId,0,1) AS FLAG_VALID
+RESIDENT SortedTable;
+
+//and finally we drop sorted as it's not needed anymore
+DROP TABLE SortedTable;
+```
