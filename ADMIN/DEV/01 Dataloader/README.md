@@ -19,6 +19,10 @@ SET _ENV = "DEV";
 
 //here we load the global config
 $(include=../../COMMON/00 Config/CONF_PATHS.txt);
+
+//at this point we integrate the qv-components
+$(include=../../COMMON/LIBS/QVComponents/QVC_Runtime/Qvc.qvs);
+$(include=../../COMMON/LIBS/QVComponents/QVC_Runtime/language/qvc_language_GE.qvs);
 ```
 
 Load Skript Dataloader Syntax Template:
@@ -43,3 +47,4 @@ UNQUALIFY "*";
 
 STORE $(varTableName) INTO "$(PATH_DATASTAGING)$(varTableName).qvd" (qvd);
 ```
+

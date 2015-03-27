@@ -10,7 +10,7 @@ This repository is delivered "as is". We don't take any warrenty on the scripts.
 
 ```
 ADMIN -- the backend part, for developers and advanced users only
-ANALYSEN -- the frontend part, for advanced and normal users
+ANALYSIS -- the frontend part, for advanced and normal users
 CONSOLE -- the console, tiny tools that will help you to automatise tasks
 DEPLOYMENT -- default target for all exports from within qlikview (optional nprinting)
 DOCS -- general docs about this repository
