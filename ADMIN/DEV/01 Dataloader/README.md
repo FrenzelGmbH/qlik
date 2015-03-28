@@ -16,6 +16,7 @@ Load Skript Introduction Syntax Template:
 
 //set the environment
 SET _ENV = "DEV";
+SET _DEBUG = 1;
 
 //here we load the global config
 $(include=../../COMMON/00 Config/CONF_PATHS.txt);
@@ -50,8 +51,12 @@ Trace "Saving to Path: $(PATH_DATASTAGING)";
 
 STORE $(varTableName) INTO "$(PATH_DATASTAGING)$(varTableName).qvd" (qvd);
 
+IF _DEBUG = 0 THEN
+  DROP TABLE $(varTableName);
+END IF;
+
 Let varNoRecords = NoOfRows(varTableName);
-Let msgLogFile = 'Die Tabelle ' & varTableName & ' wurde mit ' & varNoRecords & ' geladen.';
+Let msgLogFile = 'The Table ' & varTableName & ' has been loaded with ' & varNoRecords & ' rows.';
 
 //hier schreiben wir einen Kommentar in ein LogFile
 CALL Qvc.Log(msgLogFile,'INFO');
