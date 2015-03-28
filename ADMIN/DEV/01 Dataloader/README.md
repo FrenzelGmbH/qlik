@@ -33,7 +33,7 @@ Load Skript Dataloader Syntax Template:
  * @dataloader tbl_demo
  * @source OLEDB
  * @version 1.0
- * Läd nur eine einzelne Datei aus der Datenbank
+ * Loads only one single database table form the connection
  */
 
 SET varTableName = "tbl_demo";
