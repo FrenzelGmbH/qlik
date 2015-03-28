@@ -5,7 +5,7 @@
  */
 
 //Pls. define your project root here
-LET varProjectRoot = "d:/qlikview";
+SET varProjectRoot = "d:/qlikview";
 
 //Common Path and File Information
 LET varFileName = DocumentName();
