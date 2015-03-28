@@ -32,6 +32,7 @@ Load Skript Dataloader Syntax Template:
  * @dataloader tbl_demo
  * @source OLEDB
  * @version 1.0
+ * Läd nur eine einzelne Datei aus der Datenbank
  */
 
 SET varTableName = "tbl_demo";
@@ -45,7 +46,15 @@ SQL SELECT * FROM [$(varTableName)];
 
 UNQUALIFY "*";
 
+Trace "Saving to Path: $(PATH_DATASTAGING)";
+
 STORE $(varTableName) INTO "$(PATH_DATASTAGING)$(varTableName).qvd" (qvd);
+
+Let varNoRecords = NoOfRows(varTableName);
+Let msgLogFile = 'Die Tabelle ' & varTableName & ' wurde mit ' & varNoRecords & ' geladen.';
+
+//hier schreiben wir einen Kommentar in ein LogFile
+CALL Qvc.Log(msgLogFile,'INFO');
 ```
 
 Identifizieren von Dubletten:
