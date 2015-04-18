@@ -1,0 +1,59 @@
+// ************************************************** //
+// AUTHOR Philipp Frenzel <philipp@frenzel.net 		  //
+// ************************************************** //
+ 
+SET varStringDocumentName = "=DocumentName()";
+ 
+DimColorTable:
+LOAD
+ 'col' & ColorName AS ColorName,
+ RGB(Red,Green,Blue) AS ColorCode;
+LOAD ColorName, 
+     Red, 
+     Green, 
+     Blue
+FROM
+[http://www.beeye.org/wp-content/plugins/download-monitor/download.php?id=3]
+(txt, codepage is 1252, embedded labels, delimiter is ';', msq, no eof);
+ 
+//first init variables
+// ************************************************** //
+// AUTHOR Philipp Frenzel <philipp@frenzel.net        //
+// ************************************************** //
+ 
+SET varStringDocumentName = "=DocumentName()";
+ 
+ColorTable:
+LOAD ColorName, 
+     Red, 
+     Green, 
+     Blue
+FROM
+[http://www.beeye.org/wp-content/plugins/download-monitor/download.php?id=3]
+(txt, codepage is 1252, embedded labels, delimiter is ';', msq, no eof);
+ 
+ 
+// ************************************************************** //
+// Dynamic Variables by Frenzel GmbH - COPY 2013 www.frenzel.net  //
+// AUTHOR Philipp Frenzel <philipp@frenzel.net                    //
+// ************************************************************** //
+ 
+//Get the number of available rows in the rights table
+LET varIntegerNoVariables = NoOfRows('ColorTable');
+ 
+TRACE Number of Dynamic Color Vars: $(varIntegerNoVariables);
+ 
+//Lets build the dynamic variables
+FOR DatenbankIter = 0 TO $(varIntegerNoVariables) - 1
+ 
+ 	//here we build the logic for the color coding
+	LET curVariableName = peek('ColorName',DatenbankIter,'ColorTable');
+	LET col$(curVariableName)= 'rgb(' & peek('Red',DatenbankIter,'ColorTable') &',' & peek('Green',DatenbankIter,'ColorTable') &','& peek('Blue',DatenbankIter,'ColorTable') &')';
+	
+NEXT;
+ 
+DROP TABLE ColorTable;
+ 
+// ************************************************** //
+// AUTHOR Philipp Frenzel <philipp@frenzel.net        //
+// ************************************************** //
