@@ -9,6 +9,7 @@ REM -------------------------------------------------------
 ECHO Starting reload process
 ECHO ======================================================
 
+ECHO Reload "D:\qlik\ADMIN\PROD\01 Dataloader\01 Reload Task.qvw"
 "C:\Program Files\QlikView\QV.exe" /r "D:\qlik\ADMIN\PROD\01 Dataloader\01 Reload Task.qvw"
 timeout /T 20
 
