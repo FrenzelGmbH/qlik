@@ -14,8 +14,8 @@ REM -------------------------------------------------------
 ECHO Starting reload process
 ECHO ======================================================
 
-ECHO Reload "D:\qlik\ADMIN\DEV\01 Dataloader\01 Hello World.qvw"
-"c:\Program Files\QlikView\QV.exe" /r "c:\qlik\ADMIN\PROD\01 Dataloader\01 Hello World.qvw"
+ECHO Reload "D:\qlik\ADMIN\DEV\01 Dataloader\Hello World.qvw"
+"c:\Program Files\QlikView\QV.exe" /r "c:\qlik\ADMIN\DEV\01 Dataloader\Hello World.qvw"
 timeout /T 20
 
 ECHO %date% %time%: finished scheduler.bat >>"scheduler.log"
