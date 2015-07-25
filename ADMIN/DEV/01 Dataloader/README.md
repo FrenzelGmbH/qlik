@@ -62,6 +62,46 @@ Let msgLogFile = 'The Table ' & varTableName & ' has been loaded with ' & varNoR
 CALL Qvc.Log(msgLogFile,'INFO');
 ```
 
+Enhanced loader sub:
+
+```
+/**
+ * LoadSourceTableByName
+ * @param TableName String the name of the table that will be exported
+ * @param Historical Boolean if a historical version will be saved on a monthtly basis, pls. check comment!
+ * @version 1.0
+ * @author Philipp Frenzel <philipp@frenzel.net>
+ */
+
+SUB LoadSourceTableByName(TableName, Historical)
+
+LET varTableName = TableName;
+
+QUALIFY "*";
+ 
+$(varTableName):
+LOAD *;
+SQL SELECT * FROM spaceman.$(varTableName);
+ 
+UNQUALIFY "*";
+ 
+ 
+// Here we store the table as is into the filesystem 
+STORE $(varTableName) INTO "$(PATH_DATASTAGING)$(varTableName).qvd" (qvd);
+
+IF Historical = 1 THEN
+
+// ATTENTION, if you save historical data, pls. ensure that a folder with the tablename name exists within the datastaging root folder!
+STORE $(varTableName) INTO "$(PATH_DATASTAGING)HISTORY/($varTableName)/$(varTableName)$(VERSIONDATE).qvd" (qvd);
+
+END IF
+
+DROP TABLE $(varTableName);
+
+END SUB
+```
+
+
 Identifizieren von Dubletten:
 
 ```
