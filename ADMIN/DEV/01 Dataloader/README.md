@@ -31,34 +31,46 @@ Load Skript Dataloader Syntax Template:
 ```
 /**
  * LoadSourceTableByName
+ * @param NameSpace String a prefix which will be added to the qvd to separate sources
+ * @param TableDomain String the SQL Domain that you wanna laod the data from
+ * @param TableAlias String if a Table has a strange name, you can pass a beautified name
  * @param TableName String the name of the table that will be exported
  * @param Historical Boolean if a historical version will be saved on a monthtly basis, pls. check comment!
  * @version 1.02
  * @author Philipp Frenzel <philipp@frenzel.net>
  */
  
-SUB LoadSourceTableByName(NameSpace, TableAlias, TableName, Historical)
- 
+SUB LoadSourceTableByName(NameSpace, TableDomain, TableAlias, TableName, Historical, FilterCondition, StorageDivider)
+
+LET varTableDomain = TableDomain; 
 LET varTableName = TableName;
 LET varTableAlias = TableAlias;
 LET varNameSpace = NameSpace;
+LET varFilterCondition = FilterCondition;
+LET varStorageDivider = StorageDivider;
+SET varSQLToRun = 'SELECT * FROM $(varTableDomain)$(varTableName)';
+
+IF FilterCondition = '' THEN
+	//nothing will be changed
+ELSE
+	SET varSQLToRun = '$(varSQLToRun) $(varFilterCondition)';
+	CALL Qvc.Log('Will Execute: $(varSQLToRun)','INFO');
+END IF
  
 QUALIFY "*";
  
 $(varTableAlias):
 LOAD *;
-SQL SELECT * FROM SelfStorage.sesfibu.$(varTableName);
+SQL $(varSQLToRun);
  
 UNQUALIFY "*";
   
 // Here we store the table as is into the filesystem 
-STORE $(varTableAlias) INTO "$(PATH_DATASTAGING)$(varNameSpace)_$(varTableAlias).qvd" (qvd);
+STORE $(varTableAlias) INTO "$(PATH_DATASTAGING)$(varNameSpace)_$(varTableAlias)_$(varStorageDivider).qvd" (qvd);
  
-IF Historical = 1 THEN
- 
-// ATTENTION, if you save historical data, pls. ensure that a folder with the tablename name exists within the datastaging root folder!
-STORE $(varTableAlias) INTO "$(PATH_DATASTAGING)HISTORY/$(varTableName)/$(varTableName)$(VERSIONDATE).qvd" (qvd);
- 
+IF Historical = 1 THEN 
+	// ATTENTION, if you save historical data, pls. ensure that a folder with the tablename name exists within the datastaging root folder!
+	STORE $(varTableAlias) INTO "$(PATH_DATASTAGING)HISTORY/$(varTableName)/$(varNameSpace)_$(varTableAlias)_$(varStorageDivider)$(VERSIONDATE).qvd" (qvd);
 END IF
 
 Let varNoRecords = NoOfRows(varTableAlias);
