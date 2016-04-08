@@ -47,7 +47,7 @@ QUALIFY "*";
  
 $(varTableAlias):
 LOAD *;
-SQL SELECT * FROM spaceman.$(varTableName);
+SQL SELECT * FROM SelfStorage.sesfibu.$(varTableName);
  
 UNQUALIFY "*";
   
@@ -60,18 +60,16 @@ IF Historical = 1 THEN
 STORE $(varTableAlias) INTO "$(PATH_DATASTAGING)HISTORY/$(varTableName)/$(varTableName)$(VERSIONDATE).qvd" (qvd);
  
 END IF
- 
-DROP TABLE $(varTableAlias);
-
-IF _DEBUG = 0 THEN
-  DROP TABLE $(varTableName);
-END IF;
 
 Let varNoRecords = NoOfRows(varTableAlias);
 Let msgLogFile = 'The Table ' & varTableAlias & ' has been loaded with ' & varNoRecords & ' rows.';
 
 //hier schreiben wir einen Kommentar in ein LogFile
 CALL Qvc.Log(msgLogFile,'INFO');
+
+IF _DEBUG = 0 THEN
+  DROP TABLE $(varTableAlias);
+END IF;
  
 END SUB
 ```
