@@ -30,36 +30,50 @@ Load Skript Dataloader Syntax Template:
 
 ```
 /**
- * @dataloader tbl_demo
- * @source OLEDB
- * @version 1.0
- * Loads only one single database table form the connection
+ * LoadSourceTableByName
+ * @param TableName String the name of the table that will be exported
+ * @param Historical Boolean if a historical version will be saved on a monthtly basis, pls. check comment!
+ * @version 1.02
+ * @author Philipp Frenzel <philipp@frenzel.net>
  */
-
-SET varTableName = "tbl_demo";
-
+ 
+SUB LoadSourceTableByName(NameSpace, TableAlias, TableName, Historical)
+ 
+LET varTableName = TableName;
+LET varTableAlias = TableAlias;
+LET varNameSpace = NameSpace;
+ 
 QUALIFY "*";
-
-$(varTableName):
-LOAD 
-    *;
-SQL SELECT * FROM [$(varTableName)];
-
+ 
+$(varTableAlias):
+LOAD *;
+SQL SELECT * FROM spaceman.$(varTableName);
+ 
 UNQUALIFY "*";
-
-Trace "Saving to Path: $(PATH_DATASTAGING)";
-
-STORE $(varTableName) INTO "$(PATH_DATASTAGING)$(varTableName).qvd" (qvd);
+  
+// Here we store the table as is into the filesystem 
+STORE $(varTableAlias) INTO "$(PATH_DATASTAGING)$(varNameSpace)_$(varTableAlias).qvd" (qvd);
+ 
+IF Historical = 1 THEN
+ 
+// ATTENTION, if you save historical data, pls. ensure that a folder with the tablename name exists within the datastaging root folder!
+STORE $(varTableAlias) INTO "$(PATH_DATASTAGING)HISTORY/$(varTableName)/$(varTableName)$(VERSIONDATE).qvd" (qvd);
+ 
+END IF
+ 
+DROP TABLE $(varTableAlias);
 
 IF _DEBUG = 0 THEN
   DROP TABLE $(varTableName);
 END IF;
 
-Let varNoRecords = NoOfRows(varTableName);
-Let msgLogFile = 'The Table ' & varTableName & ' has been loaded with ' & varNoRecords & ' rows.';
+Let varNoRecords = NoOfRows(varTableAlias);
+Let msgLogFile = 'The Table ' & varTableAlias & ' has been loaded with ' & varNoRecords & ' rows.';
 
 //hier schreiben wir einen Kommentar in ein LogFile
 CALL Qvc.Log(msgLogFile,'INFO');
+ 
+END SUB
 ```
 
 Enhanced loader sub:
