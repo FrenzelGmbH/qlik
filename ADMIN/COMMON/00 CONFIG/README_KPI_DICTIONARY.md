@@ -16,7 +16,8 @@ the KPI dictionary.
 
 SourceCode:
 
-´´´
+```VBA
+
 //load KPI Dictionary from Excel file
 KPI_Dictionary:
 LOAD KPI.Label,
@@ -75,4 +76,5 @@ WHERE match(NAME,'initialTestLabel')=0;
 
 //drop unnecessary tables
 DROP TABLE tempTable;
-´´´
+
+```
