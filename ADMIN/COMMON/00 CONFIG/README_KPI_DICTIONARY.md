@@ -1,3 +1,13 @@
+# KPI Dictionary
+
+## About
+
+Author: Richard Patsch <richard@frenzel.net>
+Version: 1.0
+License: MIT
+
+## Usage
+
 1. How to use it on your surface:
 Make use of this expression: $(=Only({<KPI.Label={"CallsTotal"}>} KPI.Definition))
 
@@ -6,6 +16,7 @@ the KPI dictionary.
 
 SourceCode:
 
+´´´
 //load KPI Dictionary from Excel file
 KPI_Dictionary:
 LOAD KPI.Label,
@@ -64,3 +75,4 @@ WHERE match(NAME,'initialTestLabel')=0;
 
 //drop unnecessary tables
 DROP TABLE tempTable;
+´´´
