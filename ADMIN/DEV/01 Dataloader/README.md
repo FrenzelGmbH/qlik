@@ -4,7 +4,7 @@ In diesem Ordner befinden sich sämtliche "Datenpumpen" welche einen rohen Daten
 
 Load Skript Introduction Syntax Template:
 
-```
+```vba
 /**
  * @author Philipp Frenzel <philipp@frenzel.net>
  * @version 1.0
@@ -28,7 +28,7 @@ $(include=../../COMMON/LIBS/QVComponents/QVC_Runtime/language/qvc_language_GE.qv
 
 Load Skript Dataloader Syntax Template:
 
-```
+```vba
 /**
  * LoadSourceTableByName
  * @param NameSpace String a prefix which will be added to the qvd to separate sources
@@ -88,7 +88,7 @@ END SUB
 
 Enhanced loader sub:
 
-```
+```vba
 /**
  * LoadSourceTableByName
  * @param TableName String the name of the table that will be exported
@@ -128,7 +128,7 @@ END SUB
 
 Identifizieren von Dubletten:
 
-```
+```vba
 //first we load the raw source table
 RawTable:
 LOAD 
