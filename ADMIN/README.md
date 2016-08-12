@@ -9,4 +9,5 @@ This folder should only be managed by technical or powerusers. Be aware, that if
 - COMMON
 - PROD
 - DEV
-- 
+
+Common Folder should hold files which are basic configuration or source for the production and dthe development folder.
