@@ -12,8 +12,8 @@ SET _ENV = "DEV";
 SET _DEBUG = 1;
 
 //here we load the global config
-$(must_include=../../COMMON/00 Config/CONF_PATHS.txt);
+$(must_include=[../../COMMON/00 Config/CONF_PATHS.txt]);
 
 //at this point we integrate the qv-components
-$(must_include=../../COMMON/LIBS/QVComponents/QVC_Runtime/Qvc.qvs);
-$(must_include=../../COMMON/LIBS/QVComponents/QVC_Runtime/language/qvc_language_GE.qvs);
+$(must_include=[../../COMMON/LIBS/QVComponents/QVC_Runtime/Qvc.qvs]);
+$(must_include=[../../COMMON/LIBS/QVComponents/QVC_Runtime/language/qvc_language_GE.qvs]);
