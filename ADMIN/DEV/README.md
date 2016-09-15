@@ -6,6 +6,8 @@ Here you will find the plain load scripts for your datasources which will only d
 
 ## 02 Datastaging
 
+All datasources in a raw qvd format, ready to be transformed via 03 Datalogic.
+
 ## 03 Datalogic
 
 ## 04 Datamart
