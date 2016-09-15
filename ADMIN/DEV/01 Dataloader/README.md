@@ -155,3 +155,14 @@ RESIDENT SortedTable;
 //and finally we drop sorted as it's not needed anymore
 DROP TABLE SortedTable;
 ```
+
+# Logging via stored procedure
+```
+LogIntoTable:
+Load 
+	*;
+SQL EXECUTE [dbo].[mdb].[NameOfProcedure]
+		@param1 = $(vDocumentname),
+		@param2 = $(vSuccess)
+;
+```
