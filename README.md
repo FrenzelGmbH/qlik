@@ -45,9 +45,9 @@ GER - 70469 Stuttgart
 Postgasse 16
 AUT - 1010 Wien
 
-philipp(at)frenzel.net
-richard(at)frenzel.net
-nicole(at)frenzel.net
-egdar(at)frenzel.net
+- philipp(at)frenzel.net
+- richard(at)frenzel.net
+- nicole(at)frenzel.net
+- egdar(at)frenzel.net
 
 www.frenzel.net
