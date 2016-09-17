@@ -17,6 +17,10 @@ DOCS -- general docs about this repository
 VERSIONING -- this will hold all config files that will be managed within versioning tools like git
 ```
 
+## Docs
+
+All documentation can be found in the dev folders of the existing subfolders. This is due to the fact, that the dev folders will be published to prod by copy and past from within the dev folder.
+
 ## Setup
 
 After you have cloned or downloaded the template, pls. go to the folder:
