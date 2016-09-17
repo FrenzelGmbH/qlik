@@ -1,6 +1,16 @@
 # ADMIN - DEV - 01 Dataloader
 
-In diesem Ordner befinden sich sämtliche "Datenpumpen" welche einen rohen Datenextrakt als QVD in das Datastaging ablegen.
+(EN) This folder is the source of plain data load scripts to generate a clean QVD-Datastaging Layer which can then be used as source of transformation.
+
+(D) In diesem Ordner befinden sich sämtliche "Datenpumpen" welche einen rohen Datenextrakt als QVD in das Datastaging ablegen.
+
+## Code Conventions
+
+(EN) All generated data files should be written CamelCase. Pls. don't include special characters.
+
+(D) Alle erzeugten QVDaten Dateien sollen mittels CamelCase Konvention geschrieben werden.
+
+## Code Samples
 
 Load Skript Introduction Syntax Template:
 
