@@ -1,4 +1,4 @@
-# qlik
+# qlik - 03 Datalogic
 
 Within the datalogic folder, you transform your sources into a cleaned format seperated into:
 
