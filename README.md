@@ -1,6 +1,6 @@
-# QlikView Project Template
+# Qlik (View/Sense) Project Template
 
-This repository is our boiler plate template for setting up a new qlikview project. It's build upon our practical experience in combination with the best practices we learned from developing individual software.
+This repository is our boiler plate template for setting up a new qlik project. It's build upon our practical experience in combination with the best practices we learned from developing individual software. As the main focus of this repository is to ensure stability and maintanance of your Datawarehouse and Analysis Solution, you can use this template for Sense and QlikView!
 
 Feel free to contribute, ask questions or send us an pull request to improve the template.
 
