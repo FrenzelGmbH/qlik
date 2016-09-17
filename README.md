@@ -25,6 +25,12 @@ ADMIN > COMMON > 00 CONFIG
 
 and edit the CONF_PATHS to set the correct "varProjectRoot". Default is "d:/qlikview/".
 
+## Tools and Helper (3rd Party)
+
+QVD-Preview - Super Fast and allows you to understand structure without using qlik client.
+http://easyqlik.com/
+
+
 ## Author
 
 Frenzel GmbH
