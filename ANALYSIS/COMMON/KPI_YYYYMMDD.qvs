@@ -1,0 +1,18 @@
+/**
+* KPI DICTIONARY
+* FRENZEL GMBH Date()
+* Global Definition of KPI's for usage in all Analysis Documents
+* Changelog
+* - INIT
+**/
+
+KPIDefinition:
+LOAD 
+  replace(KPI.DefinitionDirty,'§','$')  AS KPI.Definition
+  ,*
+;
+LOAD * INLINE [
+  KPI.Label, KPI.DefinitionDirty, KPI.Description, KPI.Valid, KPI.Group, KPI.Scenario
+  HelloWorld, 'Hello World', return string hello world, 1, TEST, DEV
+];
+
